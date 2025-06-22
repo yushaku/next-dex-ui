@@ -9,6 +9,7 @@ import { Providers } from "./Providers";
 import { headers } from "next/headers";
 import { cookieToInitialState } from "@account-kit/core";
 import { alchemyConfig } from "../config/alchemy";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -89,6 +90,7 @@ export default async function RootLayout({
         suppressHydrationWarning
       >
         <Providers initialState={initialState}>{children}</Providers>
+        <Toaster position='top-center' reverseOrder={false} />
         <Analytics />
         <SpeedInsights />
       </body>
