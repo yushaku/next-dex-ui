@@ -4,6 +4,8 @@
 @import "tw-animate-css";
 
 @theme inline {
+  --color-layer: var(--layer);
+  --color-focus: var(--focus);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -65,6 +67,9 @@
 }
 
 :root {
+  --layer: #1e2431;
+  --focus: #2d3549;
+
   --radius: 0.75rem;
   --background: hsl(221 53% 95%);
   --foreground: hsl(221 5% 10%);
@@ -79,7 +84,7 @@
   --muted: hsl(183 30% 85%);
   --muted-foreground: hsl(221 5% 35%);
   --accent: hsl(183 30% 80%);
-  --accent-foreground: hsl(221 5% 15%);
+  --accent-foreground: #4c82f8;
   --destructive: hsl(0 53% 30%);
   --destructive-foreground: hsl(221 5% 90%);
   --border: hsl(221 30% 50%);
@@ -102,7 +107,10 @@
 }
 
 .dark {
-  --background: hsl(221 50% 10%);
+  --layer: #1e2431;
+  --focus: #2d3549;
+
+  --background: hsl(220 24% 12%);
   --foreground: hsl(221 5% 90%);
   --card: hsl(223, 48%, 20%);
   --card-foreground: hsl(221 5% 90%);
@@ -115,7 +123,7 @@
   --muted: hsl(183 30% 22%);
   --muted-foreground: hsl(221 5% 60%);
   --accent: hsl(183 30% 22%);
-  --accent-foreground: hsl(221 5% 90%);
+  --accent-foreground: #4c82f8;
   --destructive: hsl(0 53% 30%);
   --destructive-foreground: hsl(221 5% 90%);
   --border: hsl(221 30% 22%);
@@ -175,4 +183,22 @@
 
 @utility flex-center {
   @apply flex items-center justify-center;
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

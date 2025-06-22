@@ -10,6 +10,8 @@ import { headers } from "next/headers";
 import { cookieToInitialState } from "@account-kit/core";
 import { alchemyConfig } from "../config/alchemy";
 import { Toaster } from "react-hot-toast";
+import { Footer } from "@/components/Footer";
+import { LayoutWithSidebar } from "../components/layout";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -87,9 +89,11 @@ export default async function RootLayout({
           "bg-background min-h-svh overflow-x-hidden font-sans antialiased",
           inter.variable
         )}
-        suppressHydrationWarning
       >
-        <Providers initialState={initialState}>{children}</Providers>
+        <Providers initialState={initialState}>
+          <LayoutWithSidebar>{children}</LayoutWithSidebar>
+        </Providers>
+
         <Toaster position='top-center' reverseOrder={false} />
         <Analytics />
         <SpeedInsights />

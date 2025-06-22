@@ -1,10 +1,9 @@
 export const siteConfig = {
   logo: "/logo.png",
-  name: "Yushaku blog",
+  name: "Yushaku DEX",
   url: "https://yushaku.vercel.app",
   ogImage: "https://yushaku.vercel.app/banner.png",
-  description:
-    "A personal blog where I share my thoughts and experiences about software development, technology trends, and programming best practices",
+  description: "A decentralized exchange for trading tokens",
   links: {
     linkedin: "https://www.linkedin.com/in/levanson180200",
     twitter: "",

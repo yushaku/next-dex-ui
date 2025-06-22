@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export function FooterSection() {
+export function Footer() {
   return (
     <footer className='my-8 border-t py-8'>
       <div className='mx-auto max-w-5xl px-6'>

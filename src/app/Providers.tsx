@@ -8,7 +8,23 @@ import { wagmiConfig } from "@/config/wagmi";
 import { alchemyConfig } from "../config/alchemy";
 import { ThemeProvider } from "@/components/theme-provider";
 
-const queryClient = new QueryClient();
+// Configure QueryClient with caching to reduce API calls
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      // Keep data fresh for 5 minutes
+      staleTime: 5 * 60 * 1000,
+      // Cache data for 10 minutes
+      gcTime: 10 * 60 * 1000,
+      // Retry failed requests 2 times
+      retry: 2,
+      // Refetch on window focus only if data is stale
+      refetchOnWindowFocus: false,
+      // Don't refetch on reconnect if data is fresh
+      refetchOnReconnect: false,
+    },
+  },
+});
 
 // Conditionally import React Query DevTools only in development
 const ReactQueryDevtools = lazy(() =>
@@ -21,7 +37,7 @@ export const Providers = (props: any) => {
   return (
     <ThemeProvider
       attribute='class'
-      defaultTheme='system'
+      defaultTheme='dark'
       enableSystem
       disableTransitionOnChange
     >
