@@ -1,0 +1,72 @@
+{
+  "name": "NextDex",
+  "short_name": "NextDex",
+  "description": "A modern decentralized exchange built with Next.js",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["finance", "business", "productivity"],
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/banner.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "NextDex - Decentralized Exchange"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Trade",
+      "short_name": "Trade",
+      "description": "Start trading on NextDex",
+      "url": "/trade",
+      "icons": [
+        {
+          "src": "/favicon-32x32.png",
+          "sizes": "32x32"
+        }
+      ]
+    },
+    {
+      "name": "Portfolio",
+      "short_name": "Portfolio",
+      "description": "View your portfolio",
+      "url": "/portfolio",
+      "icons": [
+        {
+          "src": "/favicon-32x32.png",
+          "sizes": "32x32"
+        }
+      ]
+    }
+  ]
+}
