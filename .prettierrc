@@ -1,11 +1,18 @@
 {
   "jsxSingleQuote": true,
-  "plugins": ["prettier-plugin-tailwindcss"],
-  "importOrder": ["^react$", "^next(.*)$", "^@/(.*)$", "^[./]"],
-  "importOrderSortSpecifiers": true,
+  "plugins": [
+    "prettier-plugin-tailwindcss",
+    "@trivago/prettier-plugin-sort-imports"
+  ],
+  "tailwindStylesheet": "./src/styles/global.css",
   "semi": true,
   "trailingComma": "es5",
   "printWidth": 80,
   "tabWidth": 2,
-  "useTabs": false
+  "useTabs": false,
+  "singleQuote": true,
+  "importOrder": ["^react$", "^next(.*)$", "^@/(.*)$", "^[./]"],
+  "importOrderSortSpecifiers": true,
+  "importOrderCaseInsensitive": true,
+  "importOrderParserPlugins": ["typescript", "jsx", "decorators-legacy"]
 }
