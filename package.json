@@ -50,7 +50,8 @@
     "viem": "^2.31.4",
     "wagmi": "^2.15.6",
     "websocket": "^1.0.35",
-    "zod": "^3.25.67"
+    "zod": "^3.25.67",
+    "zustand": "^5.0.6"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.4",
