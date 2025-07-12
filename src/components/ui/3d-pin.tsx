@@ -3,7 +3,7 @@
 import { motion } from 'motion/react';
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { cn } from '@/utils';
+import { cn } from '@/lib/utils';
 
 export const PinContainer = ({
   children,
@@ -65,7 +65,6 @@ export const PinContainer = ({
 
 export const PinPerspective = ({
   title,
-  href,
   pinClassName,
 }: {
   title?: string;

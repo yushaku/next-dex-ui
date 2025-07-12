@@ -17,7 +17,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { cn, createAvatar, shortenAddress } from '@/utils';
+import { cn, createAvatar, shortenAddress } from '@/lib/utils';
 
 export const WalletButton = (props: any) => {
   const user = useUser();

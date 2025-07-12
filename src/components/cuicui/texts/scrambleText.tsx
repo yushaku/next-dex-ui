@@ -2,7 +2,7 @@
 
 import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
-import { cn } from '@/utils';
+import { cn } from '@/lib/utils';
 
 interface ScrambleHoverProps {
   text: string;

@@ -15,7 +15,7 @@ import {
   useMemo,
   useState,
 } from 'react';
-import { cn } from '@/utils';
+import { cn } from '@/lib/utils';
 
 interface WordListSwapProps {
   texts: string[];
@@ -31,7 +31,7 @@ interface WordListSwapProps {
   loop?: boolean; // Whether to start from the first text when the last one is reached
   auto?: boolean; // Whether to start the animation automatically
   splitBy?: 'words' | 'characters' | 'lines';
-  onNext?: (index: number) => void;
+  onNext?: (_index: number) => void;
   mainClassName?: string;
   splitLevelClassName?: string;
   elementLevelClassName?: string;
@@ -40,7 +40,7 @@ interface WordListSwapProps {
 export interface WordListSwapRef {
   next: () => void;
   previous: () => void;
-  jumpTo: (index: number) => void;
+  jumpTo: (_index: number) => void;
   reset: () => void;
 }
 
@@ -258,3 +258,5 @@ export const WordListSwap = forwardRef<WordListSwapRef, WordListSwapProps>(
     );
   }
 );
+
+WordListSwap.displayName = 'WordListSwap';

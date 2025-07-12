@@ -3,7 +3,7 @@
 import { ArrowUpRightIcon } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { useMouse } from '@/hooks';
-import { cn } from '@/utils';
+import { cn } from '@/lib/utils';
 
 export const GradientCard = ({
   title,

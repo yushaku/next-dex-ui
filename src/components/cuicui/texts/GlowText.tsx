@@ -1,5 +1,5 @@
 import type { ComponentProps, CSSProperties, ReactNode } from 'react';
-import { cn } from '@/utils';
+import { cn } from '@/lib/utils';
 
 export const GlowText = ({
   children,

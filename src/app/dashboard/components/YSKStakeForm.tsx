@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { useDebounce } from '@/hooks/useDebounce';
-import { cn, contracts, formatNumber } from '@/utils';
+import { cn, contracts, formatNumber } from '@/lib';
 
 export const YSKStakeForm = () => {
   const chainId = useChainId();

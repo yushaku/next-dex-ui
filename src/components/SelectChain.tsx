@@ -6,7 +6,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { cn } from '@/utils';
+import { cn } from '@/lib';
 import { Base, BSC } from './icons';
 
 export const SelectChain = () => {

@@ -19,7 +19,7 @@ import {
   useTransform,
 } from 'motion/react';
 import { useId } from 'react';
-import { cn } from '@/utils';
+import { cn } from '@/lib/utils';
 
 export function CarouselCylindricalVariant1() {
   const cylinderWidth = 1500;

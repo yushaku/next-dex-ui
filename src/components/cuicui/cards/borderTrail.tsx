@@ -2,7 +2,7 @@
 
 import { motion, type Transition } from 'motion/react';
 import type { CSSProperties } from 'react';
-import { cn } from '@/utils';
+import { cn } from '@/lib/utils';
 
 type BorderTrailProps = {
   className?: string;

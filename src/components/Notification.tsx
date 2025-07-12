@@ -5,7 +5,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { cn } from '@/utils';
+import { cn } from '@/lib/utils';
+import { useNotificationsState } from '@/stores';
 
 export const NotificationDropdown = () => {
   const { itemList, remove, clearAll } = useNotificationsState();

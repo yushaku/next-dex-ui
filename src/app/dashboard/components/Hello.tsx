@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { GradientCard } from '@/components/cuicui/cards';
-import Typewriter from '@/components/cuicui/texts/typewriter';
+import { Typewriter } from '@/components/cuicui/texts';
 import { WalletButton } from '@/components/WalletButton';
 
 export const HelloGuy = () => {

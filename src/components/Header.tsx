@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { routes } from '@/utils/constants';
+import { routes } from '@/lib';
 import { SelectChain } from './SelectChain';
 import { WalletButton } from './WalletButton';
 

@@ -2,7 +2,7 @@
 
 import { useUser } from '@account-kit/react';
 import { useAccount, useEnsName } from 'wagmi';
-import { cn, shortenAddress } from '@/utils';
+import { cn, shortenAddress } from '@/lib';
 import { HelloGuy } from './components/Hello';
 import { NativeBalance } from './components/NativeBalance';
 import { YSKStakeForm } from './components/YSKStakeForm';

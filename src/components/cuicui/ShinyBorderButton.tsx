@@ -2,7 +2,7 @@
 
 import { motion } from 'motion/react';
 import type { HTMLAttributes, ReactNode } from 'react';
-import { cn } from '@/utils';
+import { cn } from '@/lib/utils';
 
 export const ShinyBorderButton = ({
   children,

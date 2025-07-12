@@ -2,7 +2,7 @@ import { Address, formatEther } from 'viem';
 import { base, bsc, bscTestnet } from 'viem/chains';
 import { useBalance, useChainId } from 'wagmi';
 import { BSC, ETH } from '@/components/icons';
-import { cn } from '@/utils';
+import { cn } from '@/lib';
 
 export const NativeBalance = ({ address }: { address?: Address }) => {
   const balance = useBalance({ address });

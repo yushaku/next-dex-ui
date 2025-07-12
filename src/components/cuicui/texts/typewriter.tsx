@@ -1,8 +1,14 @@
 'use client';
 
 import { motion, type Variants } from 'motion/react';
-import { type ReactNode, useCallback, useEffect, useState } from 'react';
-import { cn } from '@/utils';
+import {
+  type ReactNode,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
+import { cn } from '@/lib/utils';
 
 interface TypewriterProps {
   text: string | string[];
@@ -52,7 +58,9 @@ export const Typewriter = ({
   const [isDeleting, setIsDeleting] = useState(false);
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
 
-  const texts = Array.isArray(text) ? text : [text];
+  const texts = useMemo(() => {
+    return Array.isArray(text) ? text : [text];
+  }, [text]);
 
   const handleTyping = useCallback(
     (currentText: string) => {
