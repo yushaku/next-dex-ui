@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { ArrowUpRightIcon } from "lucide-react";
-import type { ReactNode } from "react";
-import { useMouse } from "@/hooks";
-import { cn } from "@/utils";
+import { ArrowUpRightIcon } from 'lucide-react';
+import type { ReactNode } from 'react';
+import { useMouse } from '@/hooks';
+import { cn } from '@/utils';
 
 export const GradientCard = ({
   title,
@@ -12,7 +12,6 @@ export const GradientCard = ({
   circleSize = 400,
   className,
   children,
-  size = "md",
 }: {
   title?: string;
   description?: string;
@@ -20,7 +19,6 @@ export const GradientCard = ({
   circleSize?: number;
   children?: ReactNode;
   className?: string;
-  size?: "sm" | "md" | "lg";
 }) => {
   const [mouse, parentRef] = useMouse();
 
@@ -34,10 +32,10 @@ export const GradientCard = ({
       )}
       <div
         className={cn(
-          "absolute -translate-x-1/2 -translate-y-1/2 transform-gpu rounded-full transition-transform duration-500 group-hover:scale-[3]",
+          'absolute -translate-x-1/2 -translate-y-1/2 transform-gpu rounded-full transition-transform duration-500 group-hover:scale-[3]',
           mouse.elementX === null || mouse.elementY === null
-            ? "opacity-0"
-            : "opacity-100"
+            ? 'opacity-0'
+            : 'opacity-100'
         )}
         style={{
           maskImage: `radial-gradient(${
@@ -48,7 +46,7 @@ export const GradientCard = ({
           left: `${mouse.elementX}px`,
           top: `${mouse.elementY}px`,
           background:
-            "linear-gradient(135deg, #3BC4F2, #7A69F9,#F26378,#F5833F)",
+            'linear-gradient(135deg, #3BC4F2, #7A69F9,#F26378,#F5833F)',
         }}
       />
 
@@ -57,7 +55,7 @@ export const GradientCard = ({
       {children && (
         <div
           className={cn(
-            "gird bg-background/80 relative h-40 place-content-center overflow-hidden rounded-[15px] border",
+            'gird bg-background/80 relative h-40 place-content-center overflow-hidden rounded-[15px] border',
             className
           )}
         >
@@ -66,7 +64,7 @@ export const GradientCard = ({
       )}
 
       <div
-        className={cn("relative", (title || description) && "px-4 pt-4 pb-2")}
+        className={cn('relative', (title || description) && 'px-4 pt-4 pb-2')}
       >
         {title && (
           <h3 className='text-foreground text-lg font-semibold'>{title}</h3>

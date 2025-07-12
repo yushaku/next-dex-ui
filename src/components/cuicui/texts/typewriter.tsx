@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { type Variants, motion } from "motion/react";
-import { type ReactNode, useCallback, useEffect, useState } from "react";
-import { cn } from "@/utils";
+import { motion, type Variants } from 'motion/react';
+import { type ReactNode, useCallback, useEffect, useState } from 'react';
+import { cn } from '@/utils';
 
 interface TypewriterProps {
   text: string | string[];
@@ -16,13 +16,13 @@ interface TypewriterProps {
   hideCursorOnType?: boolean;
   cursorChar?: string | ReactNode;
   cursorAnimationVariants?: {
-    initial: Variants["initial"];
-    animate: Variants["animate"];
+    initial: Variants['initial'];
+    animate: Variants['animate'];
   };
   cursorClassName?: string;
 }
 
-const Typewriter = ({
+export const Typewriter = ({
   text,
   speed = 50,
   initialDelay = 0,
@@ -32,8 +32,8 @@ const Typewriter = ({
   className,
   showCursor = true,
   hideCursorOnType = false,
-  cursorChar = "|",
-  cursorClassName = "ml-1",
+  cursorChar = '|',
+  cursorClassName = 'ml-1',
   cursorAnimationVariants = {
     initial: { opacity: 0 },
     animate: {
@@ -42,12 +42,12 @@ const Typewriter = ({
         duration: 0.01,
         repeat: Number.POSITIVE_INFINITY,
         repeatDelay: 0.4,
-        repeatType: "reverse",
+        repeatType: 'reverse',
       },
     },
   },
 }: TypewriterProps) => {
-  const [displayText, setDisplayText] = useState("");
+  const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
@@ -88,7 +88,7 @@ const Typewriter = ({
 
     const startTyping = () => {
       if (isDeleting) {
-        if (displayText === "") {
+        if (displayText === '') {
           handleTextSwitch();
         } else {
           handleDeleting();
@@ -103,7 +103,7 @@ const Typewriter = ({
     };
 
     // Apply initial delay only at the start
-    if (currentIndex === 0 && !isDeleting && displayText === "") {
+    if (currentIndex === 0 && !isDeleting && displayText === '') {
       timeout = setTimeout(startTyping, initialDelay);
     } else {
       startTyping();
@@ -133,8 +133,8 @@ const Typewriter = ({
             cursorClassName,
             hideCursorOnType &&
               (currentIndex < texts[currentTextIndex].length || isDeleting)
-              ? "hidden"
-              : ""
+              ? 'hidden'
+              : ''
           )}
           initial='initial'
           animate='animate'
@@ -145,5 +145,3 @@ const Typewriter = ({
     </span>
   );
 };
-
-export default Typewriter;

@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { motion } from "motion/react";
-import type { HTMLAttributes, ReactNode } from "react";
-import { cn } from "@/utils";
+import { motion } from 'motion/react';
+import type { HTMLAttributes, ReactNode } from 'react';
+import { cn } from '@/utils';
 
 export const ShinyBorderButton = ({
   children,
@@ -13,7 +13,7 @@ export const ShinyBorderButton = ({
   return (
     <button
       className={cn(
-        "group bg-sidebar/90 relative overflow-hidden rounded-full p-px transition-transform active:scale-95",
+        'group bg-sidebar/90 relative overflow-hidden rounded-full p-px transition-transform active:scale-95',
         className
       )}
       type='button'
@@ -21,29 +21,29 @@ export const ShinyBorderButton = ({
     >
       <motion.span
         animate={{
-          top: ["50%", "0%", "50%", "100%", "50%"],
-          left: ["0%", "50%", "100%", "50%", "0%"],
+          top: ['50%', '0%', '50%', '100%', '50%'],
+          left: ['0%', '50%', '100%', '50%', '0%'],
         }}
         className='absolute z-10 size-8 -translate-x-1/2 -translate-y-1/2 transform-gpu blur-xs transition-transform duration-300 group-hover:scale-3'
         initial={{ top: 0, left: 0 }}
         transition={{
           duration: 3,
-          ease: "linear",
+          ease: 'linear',
           repeat: Number.POSITIVE_INFINITY,
         }}
       >
         <motion.span
           animate={{
-            rotate: ["0deg", "360deg"],
+            rotate: ['0deg', '360deg'],
           }}
           className='block size-full transform-gpu rounded-full'
           style={{
             background:
-              "linear-gradient(135deg, #3BC4F2, #7A69F9, #F26378, #F5833F)",
+              'linear-gradient(135deg, #3BC4F2, #7A69F9, #F26378, #F5833F)',
           }}
           transition={{
             duration: 3,
-            ease: "linear",
+            ease: 'linear',
             repeat: Number.POSITIVE_INFINITY,
           }}
         />
@@ -53,17 +53,17 @@ export const ShinyBorderButton = ({
         <motion.span
           animate={{
             backgroundImage: [
-              "linear-gradient(90deg, #3BC4F2, #7A69F9, #F26378, #F5833F)",
-              "linear-gradient(90deg, #F5833F,#3BC4F2, #7A69F9, #F26378)",
-              "linear-gradient(90deg, #F26378, #F5833F,#3BC4F2, #7A69F9)",
-              "linear-gradient(90deg, #7A69F9, #F26378, #F5833F,#3BC4F2)",
-              "linear-gradient(90deg, #3BC4F2, #7A69F9, #F26378, #F5833F)",
+              'linear-gradient(90deg, #3BC4F2, #7A69F9, #F26378, #F5833F)',
+              'linear-gradient(90deg, #F5833F,#3BC4F2, #7A69F9, #F26378)',
+              'linear-gradient(90deg, #F26378, #F5833F,#3BC4F2, #7A69F9)',
+              'linear-gradient(90deg, #7A69F9, #F26378, #F5833F,#3BC4F2)',
+              'linear-gradient(90deg, #3BC4F2, #7A69F9, #F26378, #F5833F)',
             ],
           }}
           className='transform-gpu bg-clip-text text-sm tracking-tighter text-neutral-600 transition-colors duration-500 group-hover:text-transparent dark:text-neutral-200'
           transition={{
             duration: 1,
-            ease: "linear",
+            ease: 'linear',
             repeat: Number.POSITIVE_INFINITY,
           }}
         >

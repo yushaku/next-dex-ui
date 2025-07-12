@@ -1,6 +1,6 @@
-import { type SmartAccountClient } from "@alchemy/aa-core";
-import { useAccount, useWalletClient } from "wagmi";
-import { useEffect, useState } from "react";
+import { type SmartAccountClient } from '@alchemy/aa-core';
+import { useAccount, useWalletClient } from 'wagmi';
+import { useEffect, useState } from 'react';
 
 export const useSmartAccount = () => {
   const { address, isConnected } = useAccount();
@@ -30,7 +30,7 @@ export const useSmartAccount = () => {
         // TODO: Implement smart account creation with Alchemy
         // This requires proper setup with Alchemy SDK and smart account factory
       } catch (error) {
-        console.error("Failed to initialize smart account:", error);
+        console.error('Failed to initialize smart account:', error);
         setSmartAccountClient(null);
         setSmartAccountAddress(null);
       } finally {
@@ -47,7 +47,7 @@ export const useSmartAccount = () => {
     data?: `0x${string}`
   ) => {
     if (!walletClient) {
-      throw new Error("Wallet client not initialized");
+      throw new Error('Wallet client not initialized');
     }
 
     try {
@@ -58,7 +58,7 @@ export const useSmartAccount = () => {
       });
       return result;
     } catch (error) {
-      console.error("Transaction failed:", error);
+      console.error('Transaction failed:', error);
       throw error;
     }
   };

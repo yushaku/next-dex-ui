@@ -1,21 +1,23 @@
+'use client';
+
 import {
-  useUser,
+  useAddPasskey,
   useAuthModal,
   useLogout,
-  useAddPasskey,
-} from "@account-kit/react";
-import { cn, shortenAddress, createAvatar } from "@/utils";
+  useUser,
+} from '@account-kit/react';
+import { LogOut } from 'lucide-react';
+import { toast } from 'react-hot-toast';
+import { useEnsName } from 'wagmi';
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { LogOut } from "lucide-react";
-import { useEnsName } from "wagmi";
-import { toast } from "react-hot-toast";
+} from '@/components/ui/dialog';
+import { cn, createAvatar, shortenAddress } from '@/utils';
 
 export const WalletButton = (props: any) => {
   const user = useUser();
@@ -29,7 +31,7 @@ export const WalletButton = (props: any) => {
     return (
       <Button
         onClick={() => openAuthModal()}
-        className={cn("px-6 py-2", props.className)}
+        className={cn('px-6 py-2', props.className)}
         variant='accent'
         size='lg'
       >
@@ -49,8 +51,8 @@ export const WalletButton = (props: any) => {
         {user.email
           ? user.email
           : ensAddress
-          ? ensAddress
-          : shortenAddress(user.address)}
+            ? ensAddress
+            : shortenAddress(user.address)}
       </Button>
 
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
@@ -69,9 +71,9 @@ export const WalletButton = (props: any) => {
             <p className='flex gap-2'>
               <span className='font-medium'>Type:</span>
               <span className='text-muted-foreground'>
-                {user.type === "eoa"
-                  ? "Externally Owned Account"
-                  : "Smart Account"}
+                {user.type === 'eoa'
+                  ? 'Externally Owned Account'
+                  : 'Smart Account'}
               </span>
             </p>
             <p className='flex gap-2'>
@@ -80,7 +82,7 @@ export const WalletButton = (props: any) => {
                 className='text-muted-foreground cursor-pointer'
                 onClick={() => {
                   navigator.clipboard.writeText(user.address);
-                  toast.success("Address copied to clipboard");
+                  toast.success('Address copied to clipboard');
                 }}
               >
                 {shortenAddress(user.address)}
@@ -103,7 +105,7 @@ export const WalletButton = (props: any) => {
                   addPasskey();
                 }}
                 variant='accent'
-                className={cn("flex-1", user.type === "eoa" && "hidden")}
+                className={cn('flex-1', user.type === 'eoa' && 'hidden')}
               >
                 Add Passkey
               </Button>

@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { Check, Copy } from "lucide-react";
-import { motion } from "motion/react";
-import { HTMLAttributes, useEffect, useState } from "react";
-import { useTheme } from "next-themes";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/utils/index";
+import { Check, Copy } from 'lucide-react';
+import { motion } from 'motion/react';
+import { HTMLAttributes, useEffect, useState } from 'react';
+import { useTheme } from 'next-themes';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/utils/index';
 
 interface ScriptCopyBtnProps extends HTMLAttributes<HTMLDivElement> {
   showMultiplePackageOptions?: boolean;
@@ -18,34 +18,34 @@ interface ScriptCopyBtnProps extends HTMLAttributes<HTMLDivElement> {
 
 export function ScriptCopyBtn({
   showMultiplePackageOptions = true,
-  codeLanguage = "shell",
-  lightTheme = "catppuccin-mocha",
-  darkTheme = "catppuccin-macchiato",
+  codeLanguage = 'shell',
+  lightTheme = 'catppuccin-mocha',
+  darkTheme = 'catppuccin-macchiato',
   commandMap,
   className,
 }: ScriptCopyBtnProps) {
   const packageManagers = Object.keys(commandMap);
   const [packageManager, setPackageManager] = useState(packageManagers[0]);
   const [copied, setCopied] = useState(false);
-  const [highlightedCode, setHighlightedCode] = useState("");
+  const [highlightedCode, setHighlightedCode] = useState('');
   const { theme } = useTheme();
   const command = commandMap[packageManager];
 
   useEffect(() => {
     async function loadHighlightedCode() {
       try {
-        const { codeToHtml } = await import("shiki");
+        const { codeToHtml } = await import('shiki');
         const highlighted = await codeToHtml(command, {
           lang: codeLanguage,
           themes: {
             light: lightTheme,
             dark: darkTheme,
           },
-          defaultColor: theme === "dark" ? "dark" : "light",
+          defaultColor: theme === 'dark' ? 'dark' : 'light',
         });
         setHighlightedCode(highlighted);
       } catch (error) {
-        console.error("Error highlighting code:", error);
+        console.error('Error highlighting code:', error);
         setHighlightedCode(`<pre>${command}</pre>`);
       }
     }
@@ -76,8 +76,8 @@ export function ScriptCopyBtn({
                       size='sm'
                       className={`bg-background hover:bg-background relative rounded-none px-2 py-1 ${
                         packageManager === pm
-                          ? "text-primary"
-                          : "text-muted-foreground"
+                          ? 'text-primary'
+                          : 'text-muted-foreground'
                       }`}
                       onClick={() => setPackageManager(pm)}
                     >
@@ -88,7 +88,7 @@ export function ScriptCopyBtn({
                           layoutId='activeTab'
                           initial={false}
                           transition={{
-                            type: "spring",
+                            type: 'spring',
                             stiffness: 500,
                             damping: 30,
                           }}
@@ -118,17 +118,17 @@ export function ScriptCopyBtn({
             size='icon'
             className='relative ml-2 rounded-md'
             onClick={copyToClipboard}
-            aria-label={copied ? "Copied" : "Copy to clipboard"}
+            aria-label={copied ? 'Copied' : 'Copy to clipboard'}
           >
-            <span className='sr-only'>{copied ? "Copied" : "Copy"}</span>
+            <span className='sr-only'>{copied ? 'Copied' : 'Copy'}</span>
             <Copy
               className={`h-4 w-4 transition-all duration-300 ${
-                copied ? "scale-0" : "scale-100"
+                copied ? 'scale-0' : 'scale-100'
               }`}
             />
             <Check
               className={`absolute inset-0 m-auto h-4 w-4 transition-all duration-300 ${
-                copied ? "scale-100" : "scale-0"
+                copied ? 'scale-100' : 'scale-0'
               }`}
             />
           </Button>

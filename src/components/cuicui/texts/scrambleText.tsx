@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import { motion } from "motion/react";
-import { useEffect, useState } from "react";
-import { cn } from "@/utils";
+import { motion } from 'motion/react';
+import { useEffect, useState } from 'react';
+import { cn } from '@/utils';
 
 interface ScrambleHoverProps {
   text: string;
   scrambleSpeed?: number;
   maxIterations?: number;
   sequential?: boolean;
-  revealDirection?: "start" | "end" | "center";
+  revealDirection?: 'start' | 'end' | 'center';
   useOriginalCharsOnly?: boolean;
   characters?: string;
   className?: string;
@@ -21,11 +21,11 @@ export const ScrambleText = ({
   scrambleSpeed = 50,
   maxIterations = 10,
   useOriginalCharsOnly = false,
-  characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+",
+  characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+',
   className,
   scrambledClassName,
   sequential = false,
-  revealDirection = "start",
+  revealDirection = 'start',
   ...props
 }: ScrambleHoverProps) => {
   const [displayText, setDisplayText] = useState(text);
@@ -39,11 +39,11 @@ export const ScrambleText = ({
 
     const getNextIndex = () => {
       switch (revealDirection) {
-        case "start":
+        case 'start':
           return getNextIndexFromStart();
-        case "end":
+        case 'end':
           return getNextIndexFromEnd();
-        case "center":
+        case 'center':
           return getNextIndexFromCenter();
         default:
           return revealedIndices.size;
@@ -79,9 +79,9 @@ export const ScrambleText = ({
 
     const shuffleText = (text: string) => {
       if (useOriginalCharsOnly) {
-        const positions = text.split("").map((char, i) => ({
+        const positions = text.split('').map((char, i) => ({
           char,
-          isSpace: char === " ",
+          isSpace: char === ' ',
           index: i,
           isRevealed: revealedIndices.has(i),
         }));
@@ -103,20 +103,20 @@ export const ScrambleText = ({
         return positions
           .map((p) => {
             if (p.isSpace) {
-              return " ";
+              return ' ';
             }
             if (p.isRevealed) {
               return text[p.index];
             }
             return nonSpaceChars[charIndex++];
           })
-          .join("");
+          .join('');
       }
       return text
-        .split("")
+        .split('')
         .map((char, i) => {
-          if (char === " ") {
-            return " ";
+          if (char === ' ') {
+            return ' ';
           }
           if (revealedIndices.has(i)) {
             return text[i];
@@ -125,12 +125,12 @@ export const ScrambleText = ({
             Math.floor(Math.random() * availableChars.length)
           ];
         })
-        .join("");
+        .join('');
     };
 
     const availableChars = useOriginalCharsOnly
-      ? Array.from(new Set(text.split(""))).filter((char) => char !== " ")
-      : characters.split("");
+      ? Array.from(new Set(text.split(''))).filter((char) => char !== ' ')
+      : characters.split('');
 
     if (isHovering) {
       setIsScrambling(true);
@@ -180,12 +180,12 @@ export const ScrambleText = ({
     <motion.span
       onHoverStart={() => setIsHovering(true)}
       onHoverEnd={() => setIsHovering(false)}
-      className={cn("inline-block whitespace-pre-wrap", className)}
+      className={cn('inline-block whitespace-pre-wrap', className)}
       {...props}
     >
       <span className='sr-only'>{displayText}</span>
       <span aria-hidden='true'>
-        {displayText.split("").map((char, index) => (
+        {displayText.split('').map((char, index) => (
           <span
             key={`${index}-${char}`}
             className={cn(

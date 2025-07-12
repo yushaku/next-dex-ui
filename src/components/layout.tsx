@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { Footer } from "./Footer";
-import { Sidebar } from "./sidebar";
-import { usePathname } from "next/navigation";
-import { Header } from "./Header";
+import { usePathname } from 'next/navigation';
+import { Footer } from './Footer';
+import { Header } from './Header';
+import { Sidebar } from './sidebar';
 
 interface LayoutWithSidebarProps {
   children: React.ReactNode;
@@ -11,7 +11,7 @@ interface LayoutWithSidebarProps {
 
 export function LayoutWithSidebar({ children }: LayoutWithSidebarProps) {
   const pathname = usePathname();
-  if (pathname === "/")
+  if (pathname === '/')
     return (
       <main>
         {children}

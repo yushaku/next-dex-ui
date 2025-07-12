@@ -1,21 +1,20 @@
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { cn } from "@/utils";
-import "../styles/globals.css";
-import { siteConfig } from "@/utils/siteConfig";
-import { Providers } from "./Providers";
-import { headers } from "next/headers";
-import { cookieToInitialState } from "@account-kit/core";
-import { alchemyConfig } from "../config/alchemy";
-import { Toaster } from "react-hot-toast";
-import { Footer } from "@/components/Footer";
-import { LayoutWithSidebar } from "../components/layout";
+import { cookieToInitialState } from '@account-kit/core';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Toaster } from 'react-hot-toast';
+import { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import { headers } from 'next/headers';
+import { cn } from '@/utils';
+import { siteConfig } from '@/utils/siteConfig';
+import { LayoutWithSidebar } from '../components/layout';
+import { alchemyConfig } from '../config/alchemy';
+import '../styles/globals.css';
+import { Providers } from './Providers';
 
 const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
+  subsets: ['latin'],
+  variable: '--font-inter',
 });
 
 export const metadata: Metadata = {
@@ -26,22 +25,22 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   description: siteConfig.description,
   keywords: [
-    "Next.js",
-    "React",
-    "Tailwind CSS",
-    "Server Components",
-    "Radix UI",
+    'Next.js',
+    'React',
+    'Tailwind CSS',
+    'Server Components',
+    'Radix UI',
   ],
   authors: [
     {
-      name: "yushaku",
-      url: "https://yushaku.vercel.app",
+      name: 'yushaku',
+      url: 'https://yushaku.vercel.app',
     },
   ],
-  creator: "yushaku",
+  creator: 'yushaku',
   openGraph: {
-    type: "website",
-    locale: "en_US",
+    type: 'website',
+    locale: 'en_US',
     url: siteConfig.url,
     title: siteConfig.name,
     description: siteConfig.description,
@@ -56,16 +55,16 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: 'summary_large_image',
     title: siteConfig.name,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
-    creator: "@yushaku",
+    creator: '@yushaku',
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+    icon: '/favicon.ico',
+    shortcut: '/favicon-16x16.png',
+    apple: '/apple-touch-icon.png',
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
 };
@@ -79,14 +78,14 @@ export default async function RootLayout({
   // https://www.alchemy.com/docs/wallets/react/ssr#persisting-the-account-state
   const initialState = cookieToInitialState(
     alchemyConfig,
-    (await headers()).get("cookie") ?? undefined
+    (await headers()).get('cookie') ?? undefined
   );
 
   return (
     <html lang='en' suppressHydrationWarning>
       <body
         className={cn(
-          "bg-background min-h-svh overflow-x-hidden font-sans antialiased",
+          'bg-background min-h-svh overflow-x-hidden font-sans antialiased',
           inter.variable
         )}
       >

@@ -1,7 +1,7 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @config '../../tailwind.config.ts';
 @plugin 'tailwindcss-animated';
-@import "tw-animate-css";
+@import 'tw-animate-css';
 
 @theme inline {
   --color-layer: var(--layer);
@@ -112,7 +112,7 @@
 
   --background: hsl(220 24% 12%);
   --foreground: hsl(221 5% 90%);
-  --card: hsl(223, 48%, 20%);
+  --card: #1e2431;
   --card-foreground: hsl(221 5% 90%);
   --popover: hsl(221 50% 5%);
   --popover-foreground: hsl(221 5% 90%);

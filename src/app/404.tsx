@@ -1,8 +1,8 @@
-import React from "react";
-import Link from "next/link";
+import React from 'react';
+import Link from 'next/link';
 
 export const metadata = {
-  title: "404 not found",
+  title: '404 not found',
 };
 
 const NotFoundPage = () => {

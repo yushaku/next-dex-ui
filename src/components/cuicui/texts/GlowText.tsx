@@ -1,5 +1,5 @@
-import type { CSSProperties, ComponentProps, ReactNode } from "react";
-import { cn } from "@/utils";
+import type { ComponentProps, CSSProperties, ReactNode } from 'react';
+import { cn } from '@/utils';
 
 export const GlowText = ({
   children,
@@ -10,37 +10,37 @@ export const GlowText = ({
   children: ReactNode;
   className?: string;
   style?: CSSProperties;
-} & ComponentProps<"span">) => {
+} & ComponentProps<'span'>) => {
   const dropShadows = [
     {
       offsetX: 0,
       offsetY: 0,
-      blurRadius: "calc((var(--active, 100) / 100) * 5px)",
-      color: "hsl(0 0% 100% / 0.6)",
+      blurRadius: 'calc((var(--active, 100) / 100) * 5px)',
+      color: 'hsl(0 0% 100% / 0.6)',
     },
     {
       offsetX: 0,
       offsetY: 0,
-      blurRadius: "calc((var(--active, 100) / 100) * 10px)",
-      color: "hsl(0 0% 100% / 0.4)",
+      blurRadius: 'calc((var(--active, 100) / 100) * 10px)',
+      color: 'hsl(0 0% 100% / 0.4)',
     },
     {
       offsetX: 0,
-      offsetY: "calc((var(--active, 100) / 100) * 6px)",
-      blurRadius: "calc((var(--active, 100) / 100) * 15px)",
-      color: "hsl(0 0% 100% / 0.3)",
+      offsetY: 'calc((var(--active, 100) / 100) * 6px)',
+      blurRadius: 'calc((var(--active, 100) / 100) * 15px)',
+      color: 'hsl(0 0% 100% / 0.3)',
     },
     {
       offsetX: 0,
-      offsetY: "calc((var(--active, 100) / 100) * 8px)",
-      blurRadius: "calc((var(--active, 100) / 100) * 20px)",
-      color: "hsl(0 0% 100% / 0.2)",
+      offsetY: 'calc((var(--active, 100) / 100) * 8px)',
+      blurRadius: 'calc((var(--active, 100) / 100) * 20px)',
+      color: 'hsl(0 0% 100% / 0.2)',
     },
     {
       offsetX: 0,
-      offsetY: "calc((var(--active, 100) / 100) * 10px)",
-      blurRadius: "calc((var(--active, 100) / 100) * 30px)",
-      color: "hsl(0 0% 100% / 0.1)",
+      offsetY: 'calc((var(--active, 100) / 100) * 10px)',
+      blurRadius: 'calc((var(--active, 100) / 100) * 30px)',
+      color: 'hsl(0 0% 100% / 0.1)',
     },
   ];
 
@@ -50,11 +50,11 @@ export const GlowText = ({
       ({ offsetX, offsetY, blurRadius, color }) =>
         `drop-shadow(${offsetX} ${offsetY} ${blurRadius} ${color})`
     )
-    .join(" ");
+    .join(' ');
 
   return (
     <span
-      className={cn("font-medium select-none", className)}
+      className={cn('font-medium select-none', className)}
       style={{
         ...style,
         filter: filterValue,

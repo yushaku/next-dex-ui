@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { type Transition, motion } from "motion/react";
-import type { CSSProperties } from "react";
-import { cn } from "@/utils";
+import { motion, type Transition } from 'motion/react';
+import type { CSSProperties } from 'react';
+import { cn } from '@/utils';
 
 type BorderTrailProps = {
   className?: string;
@@ -24,22 +24,22 @@ export function BorderTrail({
   const BASE_TRANSITION = {
     repeat: Number.POSITIVE_INFINITY,
     duration: 5,
-    ease: "linear",
+    ease: 'linear',
   };
 
   return (
     <div className='pointer-events-none absolute inset-0 rounded-[inherit] border border-transparent [mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)] [mask-composite:intersect] [mask-clip:padding-box,border-box]'>
       <motion.div
-        className={cn("absolute aspect-square", className)}
+        className={cn('absolute aspect-square', className)}
         style={{
           width: size,
           offsetPath: `rect(0 auto auto 0 round ${size}px)`,
           background:
-            "linear-gradient(135deg, #3BC4F2, #7A69F9, #F26378, #F5833F)",
+            'linear-gradient(135deg, #3BC4F2, #7A69F9, #F26378, #F5833F)',
           ...style,
         }}
         animate={{
-          offsetDistance: ["0%", "100%"],
+          offsetDistance: ['0%', '100%'],
         }}
         transition={{
           ...(transition ?? BASE_TRANSITION),

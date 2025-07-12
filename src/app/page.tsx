@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-import "../styles/landing.css";
-import { Globe, Box, MoreHorizontal } from "lucide-react";
-import Link from "next/link";
-import Image from "next/image";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { Box, Globe, MoreHorizontal } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { ThemeToggle } from '@/components/theme-toggle';
+import '../styles/landing.css';
 
 export default function Home() {
   return (
@@ -17,7 +17,7 @@ export default function Home() {
 }
 
 const Navbar = () => {
-  const componets = ["Intro", "About", "Features", "Invester", "FAQ"];
+  const componets = ['Intro', 'About', 'Features', 'Invester', 'FAQ'];
 
   return (
     <div className='flex-center'>
@@ -41,7 +41,7 @@ const Navbar = () => {
             <ThemeToggle />
 
             <li className='gradient_accent z-50 rounded-lg px-4 py-2'>
-              <Link href={"/trade"}>Launch App</Link>
+              <Link href={'/trade'}>Launch App</Link>
             </li>
           </ul>
         </div>
@@ -70,7 +70,7 @@ const TopIntro = () => {
       </p>
 
       <Link
-        href={"/trade"}
+        href={'/trade'}
         className='gradient_accent z-50 mt-10 rounded-lg px-4 py-2'
       >
         Start Trading
@@ -98,17 +98,17 @@ const TopIntro = () => {
 
 const Backer = () => {
   const backerList = [
-    "/brain-holdings.png",
-    "/colab.png",
-    "/hrt.png",
-    "jane_street.png",
+    '/brain-holdings.png',
+    '/colab.png',
+    '/hrt.png',
+    'jane_street.png',
   ];
 
   return (
     <div id='Invester' className='flex-center flex-col py-24'>
       <p className='font-bold'>INVESTORS</p>
       <h2 className='text_gradient text-5xl font-bold'>
-        {"Investors & Partners"}
+        {'Investors & Partners'}
       </h2>
       <p className='mt-5 text-xl'>
         Industry-leading market makers and venture capital firms.
@@ -131,18 +131,18 @@ const Backer = () => {
 const Safety = () => {
   const data = [
     {
-      title: "Decentralized",
-      desc: "Access an immutable money market directly on-chain. ",
+      title: 'Decentralized',
+      desc: 'Access an immutable money market directly on-chain. ',
       icon: Globe,
     },
     {
-      title: "BEP-20/ERC-20",
-      desc: "All Venus Protocol assets are bound by the BEP-20 and ERC-20 standards.",
+      title: 'BEP-20/ERC-20',
+      desc: 'All Venus Protocol assets are bound by the BEP-20 and ERC-20 standards.',
       icon: Box,
     },
     {
-      title: "Multichain",
-      desc: "Built on EVM-compatible chains for fast, secure, and low cost transactions",
+      title: 'Multichain',
+      desc: 'Built on EVM-compatible chains for fast, secure, and low cost transactions',
       icon: MoreHorizontal,
     },
   ];

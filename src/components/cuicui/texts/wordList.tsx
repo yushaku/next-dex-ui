@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
 import {
   AnimatePresence,
   type AnimatePresenceProps,
+  motion,
   type MotionProps,
   type Transition,
-  motion,
-} from "motion/react";
+} from 'motion/react';
 import {
   forwardRef,
   useCallback,
@@ -14,23 +14,23 @@ import {
   useImperativeHandle,
   useMemo,
   useState,
-} from "react";
-import { cn } from "@/utils";
+} from 'react';
+import { cn } from '@/utils';
 
 interface WordListSwapProps {
   texts: string[];
   rotationInterval?: number;
-  initial?: MotionProps["initial"];
-  animate?: MotionProps["animate"];
-  exit?: MotionProps["exit"];
-  animatePresenceMode?: AnimatePresenceProps["mode"];
+  initial?: MotionProps['initial'];
+  animate?: MotionProps['animate'];
+  exit?: MotionProps['exit'];
+  animatePresenceMode?: AnimatePresenceProps['mode'];
   animatePresenceInitial?: boolean;
   staggerDuration?: number;
-  staggerFrom?: "first" | "last" | "center" | number | "random";
+  staggerFrom?: 'first' | 'last' | 'center' | number | 'random';
   transition?: Transition;
   loop?: boolean; // Whether to start from the first text when the last one is reached
   auto?: boolean; // Whether to start the animation automatically
-  splitBy?: "words" | "characters" | "lines";
+  splitBy?: 'words' | 'characters' | 'lines';
   onNext?: (index: number) => void;
   mainClassName?: string;
   splitLevelClassName?: string;
@@ -53,18 +53,18 @@ export const WordListSwap = forwardRef<WordListSwapRef, WordListSwapProps>(
   (
     {
       texts,
-      transition = { type: "spring", damping: 25, stiffness: 300 },
-      initial = { y: "100%", opacity: 0 },
+      transition = { type: 'spring', damping: 25, stiffness: 300 },
+      initial = { y: '100%', opacity: 0 },
       animate = { y: 0, opacity: 1 },
-      exit = { y: "-120%", opacity: 0 },
-      animatePresenceMode = "wait",
+      exit = { y: '-120%', opacity: 0 },
+      animatePresenceMode = 'wait',
       animatePresenceInitial = false,
       rotationInterval = 2000,
       staggerDuration = 0,
-      staggerFrom = "first",
+      staggerFrom = 'first',
       loop = true,
       auto = true,
-      splitBy = "characters",
+      splitBy = 'characters',
       onNext,
       mainClassName,
       splitLevelClassName,
@@ -77,18 +77,18 @@ export const WordListSwap = forwardRef<WordListSwapRef, WordListSwapProps>(
 
     const elements = useMemo(() => {
       const currentText = texts[currentTextIndex];
-      if (splitBy === "characters") {
-        const text = currentText.split(" ");
+      if (splitBy === 'characters') {
+        const text = currentText.split(' ');
         return text.map((word, i) => ({
           characters: Array.from(word),
           needsSpace: i !== text.length - 1,
         }));
       }
-      if (splitBy === "words") {
-        return currentText.split(" ");
+      if (splitBy === 'words') {
+        return currentText.split(' ');
       }
-      if (splitBy === "lines") {
-        return currentText.split("\n");
+      if (splitBy === 'lines') {
+        return currentText.split('\n');
       }
 
       return currentText.split(splitBy);
@@ -97,17 +97,17 @@ export const WordListSwap = forwardRef<WordListSwapRef, WordListSwapProps>(
     const getStaggerDelay = useCallback(
       (index: number, totalChars: number) => {
         const total = totalChars;
-        if (staggerFrom === "first") {
+        if (staggerFrom === 'first') {
           return index * staggerDuration;
         }
-        if (staggerFrom === "last") {
+        if (staggerFrom === 'last') {
           return (total - 1 - index) * staggerDuration;
         }
-        if (staggerFrom === "center") {
+        if (staggerFrom === 'center') {
           const center = Math.floor(total / 2);
           return Math.abs(center - index) * staggerDuration;
         }
-        if (staggerFrom === "random") {
+        if (staggerFrom === 'random') {
           const randomIndex = Math.floor(Math.random() * total);
           return Math.abs(randomIndex - index) * staggerDuration;
         }
@@ -189,7 +189,7 @@ export const WordListSwap = forwardRef<WordListSwapRef, WordListSwapProps>(
 
     return (
       <motion.span
-        className={cn("flex flex-wrap whitespace-pre-wrap", mainClassName)}
+        className={cn('flex flex-wrap whitespace-pre-wrap', mainClassName)}
         {...props}
         layout={true}
         transition={transition}
@@ -203,13 +203,13 @@ export const WordListSwap = forwardRef<WordListSwapRef, WordListSwapProps>(
           <motion.span
             key={currentTextIndex}
             className={cn(
-              "flex flex-wrap",
-              splitBy === "lines" && "w-full flex-col"
+              'flex flex-wrap',
+              splitBy === 'lines' && 'w-full flex-col'
             )}
             layout={true}
             aria-hidden='true'
           >
-            {(splitBy === "characters"
+            {(splitBy === 'characters'
               ? (elements as WordObject[])
               : (elements as string[]).map((el, i) => ({
                   characters: [el],
@@ -222,8 +222,8 @@ export const WordListSwap = forwardRef<WordListSwapRef, WordListSwapProps>(
 
               return (
                 <span
-                  key={`${wordIndex}-${wordObj.characters.join("")}`}
-                  className={cn("inline-flex", splitLevelClassName)}
+                  key={`${wordIndex}-${wordObj.characters.join('')}`}
+                  className={cn('inline-flex', splitLevelClassName)}
                 >
                   {wordObj.characters.map((char, charIndex) => (
                     <motion.span
@@ -241,7 +241,7 @@ export const WordListSwap = forwardRef<WordListSwapRef, WordListSwapProps>(
                           )
                         ),
                       }}
-                      className={cn("inline-block", elementLevelClassName)}
+                      className={cn('inline-block', elementLevelClassName)}
                     >
                       {char}
                     </motion.span>

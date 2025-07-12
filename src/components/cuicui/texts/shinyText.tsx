@@ -1,5 +1,5 @@
-import type { ComponentProps, ReactNode } from "react";
-import { cn } from "@/utils";
+import type { ComponentProps, ReactNode } from 'react';
+import { cn } from '@/utils';
 
 export const ShinyText = ({
   children,
@@ -9,7 +9,7 @@ export const ShinyText = ({
 }: {
   children: ReactNode;
   speedInMs?: number;
-} & ComponentProps<"div">) => {
+} & ComponentProps<'div'>) => {
   return (
     <>
       <style>
@@ -26,15 +26,15 @@ export const ShinyText = ({
       </style>
       <div
         className={cn(
-          "inline-block bg-clip-text text-transparent",
-          "bg-linear-to-r from-35% via-50% to-65%",
-          "from-neutral-400 via-neutral-950 to-neutral-400",
-          "dark:from-neutral-500 dark:via-neutral-50 dark:to-neutral-500",
+          'inline-block bg-clip-text text-transparent',
+          'bg-linear-to-r from-35% via-50% to-65%',
+          'from-neutral-400 via-neutral-950 to-neutral-400',
+          'dark:from-neutral-500 dark:via-neutral-50 dark:to-neutral-500',
           className
         )}
         style={{
-          backgroundSize: "200% auto",
-          WebkitBackgroundClip: "text",
+          backgroundSize: '200% auto',
+          WebkitBackgroundClip: 'text',
           animation: `shine ${speedInMs}ms linear infinite`,
         }}
         {...props}

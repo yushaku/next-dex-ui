@@ -1,9 +1,9 @@
-import { usePathname } from "next/navigation";
-import Link from "next/link";
-import Image from "next/image";
-import { routes } from "@/utils/constants";
-import { SelectChain } from "./SelectChain";
-import { WalletButton } from "./WalletButton";
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { routes } from '@/utils/constants';
+import { SelectChain } from './SelectChain';
+import { WalletButton } from './WalletButton';
 
 type Props = {
   // theme: string;
@@ -12,7 +12,7 @@ type Props = {
 
 export const Header = (_prop: Props) => {
   const pathname = usePathname();
-  const title = headTitle[pathname as keyof typeof headTitle] ?? "Home";
+  const title = headTitle[pathname as keyof typeof headTitle] ?? 'Home';
 
   return (
     <header className='mt-5 flex items-center justify-between py-5'>
@@ -66,14 +66,14 @@ export const Header = (_prop: Props) => {
 };
 
 const headTitle = {
-  [routes.dashboard]: "Dashboard",
-  [routes.trade]: "Trade",
-  [routes.history]: "History",
-  [routes.nfts]: "NFTs Marketplace",
-  [routes.nftStudio]: "NFTs Studio",
-  [routes.myNFTs]: "Your NFTs Collection",
-  [routes.shop]: "My store",
-  [routes.admin]: "Admin Dashboard",
-  [routes.addLiquidity]: "New position",
-  [routes.pools]: "Pools",
+  [routes.dashboard]: 'Dashboard',
+  [routes.trade]: 'Trade',
+  [routes.history]: 'History',
+  [routes.nfts]: 'NFTs Marketplace',
+  [routes.nftStudio]: 'NFTs Studio',
+  [routes.myNFTs]: 'Your NFTs Collection',
+  [routes.shop]: 'My store',
+  [routes.admin]: 'Admin Dashboard',
+  [routes.addLiquidity]: 'New position',
+  [routes.pools]: 'Pools',
 };

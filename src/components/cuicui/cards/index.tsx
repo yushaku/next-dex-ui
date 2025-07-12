@@ -1,2 +1,2 @@
-export * from "./borderTrail";
-export * from "./GradientCard";
+export * from './borderTrail';
+export * from './GradientCard';

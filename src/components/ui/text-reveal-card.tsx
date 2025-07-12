@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { motion } from "motion/react";
-import { twMerge } from "tailwind-merge";
-import React, { memo, useEffect, useRef, useState } from "react";
-import { cn } from "@/utils";
+import { motion } from 'motion/react';
+import { twMerge } from 'tailwind-merge';
+import React, { memo, useEffect, useRef, useState } from 'react';
+import { cn } from '@/utils';
 
 export const TextRevealCard = ({
   text,
@@ -68,7 +68,7 @@ export const TextRevealCard = ({
       onTouchMove={touchMoveHandler}
       ref={cardRef}
       className={cn(
-        "bg-sidebar/50 relative w-[40rem] overflow-hidden rounded-lg border border-white/[0.08] p-8",
+        'bg-sidebar/50 relative w-[40rem] overflow-hidden rounded-lg border border-white/[0.08] p-8',
         className
       )}
     >
@@ -76,7 +76,7 @@ export const TextRevealCard = ({
       <div className='relative flex h-40 items-center overflow-hidden'>
         <motion.div
           style={{
-            width: "100%",
+            width: '100%',
           }}
           animate={
             isMouseOver
@@ -93,7 +93,7 @@ export const TextRevealCard = ({
         >
           <p
             style={{
-              textShadow: "4px 4px 15px rgba(0,0,0,0.5)",
+              textShadow: '4px 4px 15px rgba(0,0,0,0.5)',
             }}
             className='bg-gradient-to-b from-white to-neutral-300 bg-clip-text py-10 text-base font-bold text-transparent sm:text-[3rem]'
           >
@@ -129,7 +129,7 @@ export const TextRevealCardTitle = ({
   className?: string;
 }) => {
   return (
-    <h2 className={twMerge("mb-2 text-lg text-white", className)}>
+    <h2 className={twMerge('mb-2 text-lg text-white', className)}>
       {children}
     </h2>
   );
@@ -143,7 +143,7 @@ export const TextRevealCardDescription = ({
   className?: string;
 }) => {
   return (
-    <p className={twMerge("text-sm text-[#a9a9a9]", className)}>{children}</p>
+    <p className={twMerge('text-sm text-[#a9a9a9]', className)}>{children}</p>
   );
 };
 
@@ -165,16 +165,16 @@ const Stars = () => {
           transition={{
             duration: random() * 10 + 20,
             repeat: Infinity,
-            ease: "linear",
+            ease: 'linear',
           }}
           style={{
-            position: "absolute",
+            position: 'absolute',
             top: `${random() * 100}%`,
             left: `${random() * 100}%`,
             width: `2px`,
             height: `2px`,
-            backgroundColor: "white",
-            borderRadius: "50%",
+            backgroundColor: 'white',
+            borderRadius: '50%',
             zIndex: 1,
           }}
           className='inline-block'

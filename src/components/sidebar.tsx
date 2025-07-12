@@ -1,31 +1,31 @@
-"use client";
+'use client';
 
-import { cn } from "@/utils";
 import {
   ArrowLeft,
-  RotateCcw,
   Banknote,
   Calendar,
+  Flower,
   Forward,
   Home,
   Plus,
+  RotateCcw,
   Scissors,
   ShoppingBag,
   Wallet,
-  Flower,
-} from "lucide-react";
-import { useEffect, useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
-import Image from "next/image";
+} from 'lucide-react';
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { cn } from '@/utils';
 
 export const Sidebar = () => {
   const pathname = usePathname();
   const [isSmall, setIsSmall] = useState(false);
 
   const isTablet = useMediaQuery(
-    "(min-width: 600px) and (max-width: 1024px) and (orientation: portrait)"
+    '(min-width: 600px) and (max-width: 1024px) and (orientation: portrait)'
   );
 
   useEffect(() => {
@@ -35,13 +35,13 @@ export const Sidebar = () => {
   return (
     <section
       className={cn(
-        "bg-layer relative z-50 hidden h-screen transition-all duration-300 md:block",
-        isSmall ? "w-16" : "w-72"
+        'bg-layer relative z-50 hidden h-screen transition-all duration-300 md:block',
+        isSmall ? 'w-16' : 'w-72'
       )}
     >
       <Link
         href='/'
-        className={`flex items-center gap-3 ${isSmall ? "px-2 py-8" : "p-8"}`}
+        className={`flex items-center gap-3 ${isSmall ? 'px-2 py-8' : 'p-8'}`}
       >
         <Image
           src='/logo.png'
@@ -52,7 +52,7 @@ export const Sidebar = () => {
         />
         <h3
           className={`${
-            isSmall ? "hidden" : "block"
+            isSmall ? 'hidden' : 'block'
           } text-foreground text-2xl font-bold`}
         >
           YuDex
@@ -65,7 +65,7 @@ export const Sidebar = () => {
       >
         <ArrowLeft
           className={`${
-            isSmall ? "rotate-180" : ""
+            isSmall ? 'rotate-180' : ''
           } stroke-text-secondary size-4 transition-all duration-300`}
         />
       </span>
@@ -75,7 +75,7 @@ export const Sidebar = () => {
       <ul className='mt-4 space-y-4'>
         {navlinks.map(({ href, title, icon: Icon, children }: any) => {
           const pickedStyle =
-            pathname === href ? "border-l-accent border-l-4 bg-focus" : "";
+            pathname === href ? 'border-l-accent border-l-4 bg-focus' : '';
           const isOpen = pathname.includes(href);
 
           return (
@@ -83,13 +83,13 @@ export const Sidebar = () => {
               <Link
                 href={href}
                 className={`${pickedStyle} ${
-                  isSmall ? "px-4 py-5" : "px-8 py-5"
+                  isSmall ? 'px-4 py-5' : 'px-8 py-5'
                 } group hover:border-l-accent hover:bg-focus flex gap-3 hover:border-l-4`}
               >
                 <Icon className='fill-text-accent group-hover:stroke-accent-foreground size-6' />
                 <span
                   className={`${
-                    isSmall ? "hidden" : "block"
+                    isSmall ? 'hidden' : 'block'
                   } text-text-secondary group-hover:text-accent-foreground`}
                 >
                   {title}
@@ -109,19 +109,19 @@ export const Sidebar = () => {
                       icon: any;
                     }) => {
                       const pickedStyle = pathname.includes(href)
-                        ? "border-l-accent border-l-4 bg-focus"
-                        : "";
+                        ? 'border-l-accent border-l-4 bg-focus'
+                        : '';
 
                       return (
                         <li key={href} className='group w-full'>
                           <Link
                             className={`${pickedStyle} ${
-                              isSmall ? "px-4" : "px-12"
+                              isSmall ? 'px-4' : 'px-12'
                             } group-hover:text-accent-foreground flex gap-3 py-4`}
                             href={href}
                           >
                             <SecondIcon className='group-hover:fill-accent-foreground size-6' />
-                            <span className={`${isSmall ? "hidden" : "block"}`}>
+                            <span className={`${isSmall ? 'hidden' : 'block'}`}>
                               {title}
                             </span>
                           </Link>
@@ -142,58 +142,58 @@ export const Sidebar = () => {
 export const navlinks = [
   {
     icon: Home,
-    title: "Dashboard",
-    href: "/dashboard",
+    title: 'Dashboard',
+    href: '/dashboard',
   },
   {
     icon: RotateCcw,
-    title: "Trade",
-    href: "/trade",
+    title: 'Trade',
+    href: '/trade',
     children: [
       {
         icon: Forward,
-        title: "Bridge",
-        href: "/bridge",
+        title: 'Bridge',
+        href: '/bridge',
       },
     ],
   },
   {
     icon: Banknote,
-    title: "Pools",
-    href: "/pools",
+    title: 'Pools',
+    href: '/pools',
     children: [
       {
         icon: Plus,
-        title: "Add Liquidity",
-        href: "/add-liquidity",
+        title: 'Add Liquidity',
+        href: '/add-liquidity',
       },
     ],
   },
   {
     icon: Flower,
-    title: "NFTs",
-    href: "/nfts",
+    title: 'NFTs',
+    href: '/nfts',
     children: [
       {
         icon: Wallet,
-        title: "Inventory",
-        href: "/my-nfts",
+        title: 'Inventory',
+        href: '/nfts/inventory',
       },
       {
         icon: Scissors,
-        title: "Studio",
-        href: "/nft-studio",
+        title: 'Studio',
+        href: '/nfts/studio',
       },
     ],
   },
   {
     icon: Calendar,
-    title: "History",
-    href: "/history",
+    title: 'History',
+    href: '/history',
   },
   {
     icon: ShoppingBag,
-    title: "Shop",
-    href: "/shop",
+    title: 'Shop',
+    href: '/shop',
   },
 ] as const;

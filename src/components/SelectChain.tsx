@@ -1,19 +1,19 @@
-import { cn } from "@/utils";
-import { arbitrum, bsc, bscTestnet, mainnet } from "viem/chains";
-import { useChainId, useSwitchChain } from "wagmi";
-import { Arbitrum, BSC, ETH } from "./icons";
+import { base, baseSepolia, bsc, bscTestnet } from 'viem/chains';
+import { useChainId, useSwitchChain } from 'wagmi';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from '@/components/ui/dropdown-menu';
+import { cn } from '@/utils';
+import { Base, BSC } from './icons';
 
 export const SelectChain = () => {
   const chainId = useChainId();
   const { switchChain } = useSwitchChain();
 
-  const name = chainList.find(({ id }) => id === chainId)?.name ?? "BSC";
+  const name = chainList.find(({ id }) => id === chainId)?.name ?? 'BSC';
   const Logo = chainList.find(({ id }) => id === chainId)?.logo ?? BSC;
 
   return (
@@ -31,7 +31,7 @@ export const SelectChain = () => {
             key={id}
             onClick={() => switchChain({ chainId: id })}
             className={cn(
-              "text-foreground hover:bg-focus flex w-full items-center gap-3 px-4 py-3 text-sm"
+              'text-foreground hover:bg-focus flex w-full items-center gap-3 px-4 py-3 text-sm'
             )}
           >
             <Logo className='size-5' />
@@ -44,24 +44,34 @@ export const SelectChain = () => {
 };
 
 const chainList = [
+  // {
+  //   id: mainnet.id,
+  //   name: "Ethereum",
+  //   logo: ETH,
+  // },
   {
-    id: mainnet.id,
-    name: "Ethereum",
-    logo: ETH,
+    id: base.id,
+    name: 'Base',
+    logo: Base,
   },
   {
-    id: arbitrum.id,
-    name: "Arbitrum",
-    logo: Arbitrum,
+    id: baseSepolia.id,
+    name: 'Base Sepolia',
+    logo: Base,
   },
+  // {
+  //   id: arbitrum.id,
+  //   name: "Arbitrum",
+  //   logo: Arbitrum,
+  // },
   {
     id: bsc.id,
-    name: "BSC",
+    name: 'BSC',
     logo: BSC,
   },
   {
     id: bscTestnet.id,
-    name: "BSC Testnet",
+    name: 'BSC Testnet',
     logo: BSC,
   },
 ] as const;

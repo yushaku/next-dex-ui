@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   AlarmClockIcon,
@@ -10,16 +10,16 @@ import {
   SettingsIcon,
   SpeakerIcon,
   UserIcon,
-} from "lucide-react";
+} from 'lucide-react';
 import {
-  type PanInfo,
   motion,
+  type PanInfo,
   useAnimation,
   useMotionValue,
   useTransform,
-} from "motion/react";
-import { useId } from "react";
-import { cn } from "@/utils";
+} from 'motion/react';
+import { useId } from 'react';
+import { cn } from '@/utils';
 
 export function CarouselCylindricalVariant1() {
   const cylinderWidth = 1500;
@@ -38,7 +38,7 @@ export function CarouselCylindricalVariant1() {
   const handleDragEnd = (_: unknown, info: PanInfo) => {
     controls.start({
       rotateY: rotation.get() + info.velocity.x * dragFactor,
-      transition: { type: "spring", stiffness: 100, damping: 30, mass: 0.1 },
+      transition: { type: 'spring', stiffness: 100, damping: 30, mass: 0.1 },
     });
   };
 
@@ -51,11 +51,11 @@ export function CarouselCylindricalVariant1() {
       <div
         className='flex h-full items-center justify-center'
         style={{
-          perspective: "1000px",
-          transformStyle: "preserve-3d",
-          transform: "rotateX(0deg)",
+          perspective: '1000px',
+          transformStyle: 'preserve-3d',
+          transform: 'rotateX(0deg)',
           maskImage:
-            "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+            'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
         }}
       >
         <motion.div
@@ -68,7 +68,7 @@ export function CarouselCylindricalVariant1() {
             transform: transform,
             rotateY: rotation,
             width: cylinderWidth,
-            transformStyle: "preserve-3d",
+            transformStyle: 'preserve-3d',
           }}
         >
           {IconList.map((Item, index) => {
@@ -85,11 +85,11 @@ export function CarouselCylindricalVariant1() {
               >
                 <div
                   className={cn(
-                    "group flex h-20 w-full items-center justify-center rounded-xl",
-                    "text-card-foreground mx-auto max-w-sm rounded-2xl border border-neutral-500/10 p-6 dark:border-white/10",
-                    "dark:shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]",
-                    "neutral group transition-transform hover:scale-110",
-                    "bg-neutral-100/90 dark:bg-neutral-800/90"
+                    'group flex h-20 w-full items-center justify-center rounded-xl',
+                    'text-card-foreground mx-auto max-w-sm rounded-2xl border border-neutral-500/10 p-6 dark:border-white/10',
+                    'dark:shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]',
+                    'neutral group transition-transform hover:scale-110',
+                    'bg-neutral-100/90 dark:bg-neutral-800/90'
                   )}
                 >
                   <Item className='neutral size-8 text-neutral-700 transition-transform group-hover:scale-150 dark:text-neutral-300' />

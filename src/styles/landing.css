@@ -18,7 +18,7 @@
 
 #Intro::after {
   position: absolute;
-  content: "";
+  content: '';
   background: linear-gradient(
     245deg,
     rgba(0, 97, 167, 0.5) 22.5%,
@@ -36,7 +36,7 @@
 
 #Intro::before {
   position: absolute;
-  content: "";
+  content: '';
   background: linear-gradient(
     245deg,
     rgba(126, 69, 232, 0.5) 22.5%,
@@ -57,7 +57,7 @@
 
 #Invester::before {
   position: absolute;
-  content: "";
+  content: '';
   background: linear-gradient(
     245deg,
     rgba(126, 69, 232, 0.5) 12.5%,

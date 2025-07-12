@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { AlertTriangleIcon, ChevronLeftIcon, HouseIcon } from "lucide-react";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { AlertTriangleIcon, ChevronLeftIcon, HouseIcon } from 'lucide-react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { Button, buttonVariants } from '@/components/ui/button';
 
 export default function NotFound() {
   const router = useRouter();
@@ -24,7 +24,7 @@ export default function NotFound() {
             <ChevronLeftIcon className='size-4' />
             <span>Go back</span>
           </Button>
-          <Link href='/' className={buttonVariants({ variant: "outline" })}>
+          <Link href='/' className={buttonVariants({ variant: 'outline' })}>
             <HouseIcon className='size-4' />
             <span>Take me home</span>
           </Link>

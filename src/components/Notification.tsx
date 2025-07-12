@@ -1,11 +1,11 @@
-import { cn } from "@/utils";
-import { ArrowRightIcon, BellIcon } from "lucide-react";
+import { ArrowRightIcon, BellIcon } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from '@/components/ui/dropdown-menu';
+import { cn } from '@/utils';
 
 export const NotificationDropdown = () => {
   const { itemList, remove, clearAll } = useNotificationsState();
@@ -32,7 +32,7 @@ export const NotificationDropdown = () => {
           <DropdownMenuItem
             key={txHash}
             className={cn(
-              "group hover:bg-focus cursor-default rounded-sm px-4 py-2 text-sm"
+              'group hover:bg-focus cursor-default rounded-sm px-4 py-2 text-sm'
             )}
           >
             <div>
@@ -60,8 +60,8 @@ export const NotificationDropdown = () => {
 
         <div
           className={cn(
-            "text-text-secondary px-4 py-2 text-sm",
-            itemList.length > 0 && "hidden"
+            'text-text-secondary px-4 py-2 text-sm',
+            itemList.length > 0 && 'hidden'
           )}
         >
           <p>Notification is empty</p>

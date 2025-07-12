@@ -1,9 +1,9 @@
-import { z } from "zod";
+import { z } from 'zod';
 
 const envSchema = z.object({
   NODE_ENV: z
-    .enum(["development", "production", "test"])
-    .default("development"),
+    .enum(['development', 'production', 'test'])
+    .default('development'),
   NEXT_PUBLIC_APP_URL: z.string().url().optional(),
 
   NEXT_PUBLIC_ALCHEMY_API_KEY: z.string(),
@@ -13,10 +13,10 @@ const envSchema = z.object({
 const envParseResult = envSchema.safeParse(process.env);
 
 if (!envParseResult.success) {
-  throw new Error("Invalid environment variables");
+  throw new Error('Invalid environment variables');
 }
 
 export const env = envParseResult.data;
-export const isDevelopment = env.NODE_ENV === "development";
-export const isProduction = env.NODE_ENV === "production";
-export const isTest = env.NODE_ENV === "test";
+export const isDevelopment = env.NODE_ENV === 'development';
+export const isProduction = env.NODE_ENV === 'production';
+export const isTest = env.NODE_ENV === 'test';
