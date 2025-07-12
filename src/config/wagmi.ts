@@ -1,29 +1,36 @@
 import {
-  ReadContractParameters,
   readContract as _readContract,
   sendTransaction as _sendTransaction,
   simulateContract as _simulateContract,
   waitForTransactionReceipt as _waitForTransactionReceipt,
   writeContract as _writeContract,
-} from "@wagmi/core";
-import { Abi, Address } from "viem";
-import { createConfig, fallback, http, unstable_connector } from "wagmi";
-import { arbitrum, bsc, bscTestnet, mainnet } from "wagmi/chains";
-import { injected } from "wagmi/connectors";
-
-export const supportedChain = [mainnet, bsc, arbitrum, bscTestnet] as const;
+  ReadContractParameters,
+} from '@wagmi/core';
+import { Abi, Address } from 'viem';
+import { createConfig, fallback, http, unstable_connector } from 'wagmi';
+import {
+  arbitrum,
+  base,
+  baseSepolia,
+  bsc,
+  bscTestnet,
+  mainnet,
+} from 'wagmi/chains';
+import { injected } from 'wagmi/connectors';
 
 export const wagmiConfig = createConfig({
   ssr: true,
-  chains: supportedChain,
+  chains: [baseSepolia, bsc, bscTestnet, base],
   transports: {
     [mainnet.id]: fallback([
       unstable_connector(injected),
-      http("https://eth.llamarpc.com"),
+      http('https://eth.llamarpc.com'),
     ]),
     [arbitrum.id]: fallback([unstable_connector(injected), http()]),
     [bsc.id]: fallback([unstable_connector(injected), http()]),
     [bscTestnet.id]: fallback([unstable_connector(injected), http()]),
+    [base.id]: fallback([unstable_connector(injected), http()]),
+    [baseSepolia.id]: fallback([unstable_connector(injected), http()]),
   },
 }) as any;
 

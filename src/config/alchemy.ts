@@ -1,23 +1,23 @@
-import { alchemy, baseSepolia } from "@account-kit/infra";
+import { alchemy, baseSepolia } from '@account-kit/infra';
 import {
   AlchemyAccountsUIConfig,
   cookieStorage,
   createConfig,
-} from "@account-kit/react";
+} from '@account-kit/react';
 
 const uiConfig: AlchemyAccountsUIConfig = {
-  illustrationStyle: "outline",
+  illustrationStyle: 'outline',
   auth: {
     sections: [
-      [{ type: "email" }],
+      [{ type: 'email' }],
       [
-        { type: "passkey" },
-        { type: "social", authProviderId: "google", mode: "popup" },
-        { type: "social", authProviderId: "facebook", mode: "popup" },
+        { type: 'passkey' },
+        { type: 'social', authProviderId: 'google', mode: 'popup' },
+        { type: 'social', authProviderId: 'facebook', mode: 'popup' },
       ],
       [
         {
-          type: "external_wallets",
+          type: 'external_wallets',
         },
       ],
     ],
@@ -27,7 +27,7 @@ const uiConfig: AlchemyAccountsUIConfig = {
 
 const apiKey = process.env.NEXT_PUBLIC_ALCHEMY_API_KEY;
 if (!apiKey) {
-  throw new Error("NEXT_PUBLIC_ALCHEMY_API_KEY is not set");
+  throw new Error('NEXT_PUBLIC_ALCHEMY_API_KEY is not set');
 }
 export const alchemyConfig = createConfig(
   {
