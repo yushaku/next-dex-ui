@@ -3,14 +3,12 @@
 import {
   ArrowLeft,
   Banknote,
-  Calendar,
   Flower,
   Forward,
   Home,
   Plus,
   RotateCcw,
   Scissors,
-  ShoppingBag,
   Wallet,
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
@@ -149,13 +147,11 @@ export const navlinks = [
     icon: RotateCcw,
     title: 'Trade',
     href: '/trade',
-    children: [
-      {
-        icon: Forward,
-        title: 'Bridge',
-        href: '/bridge',
-      },
-    ],
+  },
+  {
+    icon: Forward,
+    title: 'Bridge',
+    href: '/bridge',
   },
   {
     icon: Banknote,
@@ -186,14 +182,14 @@ export const navlinks = [
       },
     ],
   },
-  {
-    icon: Calendar,
-    title: 'History',
-    href: '/history',
-  },
-  {
-    icon: ShoppingBag,
-    title: 'Shop',
-    href: '/shop',
-  },
+  // {
+  //   icon: Calendar,
+  //   title: 'History',
+  //   href: '/history',
+  // },
+  // {
+  //   icon: ShoppingBag,
+  //   title: 'Shop',
+  //   href: '/shop',
+  // },
 ] as const;
