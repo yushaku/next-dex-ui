@@ -1,16 +1,15 @@
 'use client';
 
 import { useUser } from '@account-kit/react';
-import { useAccount, useEnsName } from 'wagmi';
-import { cn, shortenAddress } from '@/lib';
+import { useAccount } from 'wagmi';
+import { cn } from '@/lib';
 import { HelloGuy } from './components/Hello';
-import { NativeBalance } from './components/NativeBalance';
+import { AddressLink, NativeBalance } from './components/NativeBalance';
 import { YSKStakeForm } from './components/YSKStakeForm';
 
 export default function Dashboard() {
   const user = useUser();
   const { address } = useAccount();
-  const ens = useEnsName({ address: address });
 
   if (!user) {
     return (
@@ -27,7 +26,9 @@ export default function Dashboard() {
           flex: address,
         })}
       >
-        <span>Welcome: {ens?.data ? ens.data : shortenAddress(address)}</span>
+        <span>
+          Welcome: <AddressLink address={address} />
+        </span>
         <NativeBalance address={address} />
       </h3>
 

@@ -1,6 +1,7 @@
 import { BigNumber } from 'bignumber.js';
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import { base, baseSepolia, bsc, bscTestnet } from 'viem/chains';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -109,3 +110,33 @@ export const formatNumber = (
 
 export const isInvalidAmount = (amount?: string | number | null) =>
   !amount || Number.isNaN(Number(amount)) || Number(amount) <= 0;
+
+export function explorerLink({
+  chainId,
+  to,
+  type = 'address',
+}: {
+  chainId: number;
+  to: string;
+  type?: 'address' | 'tx' | 'token';
+}) {
+  const baseUrl = {
+    [bscTestnet.id]: 'https://testnet.bscscan.com',
+    [bsc.id]: 'https://bscscan.com',
+    [base.id]: 'https://basescan.org',
+    [baseSepolia.id]: 'https://sepolia.basescan.org',
+  };
+
+  switch (chainId) {
+    case bscTestnet.id:
+      return `${baseUrl[chainId]}/${type}/${to}`;
+    case bsc.id:
+      return `${baseUrl[chainId]}/${type}/${to}`;
+    case base.id:
+      return `${baseUrl[chainId]}/${type}/${to}`;
+    case baseSepolia.id:
+      return `${baseUrl[chainId]}/${type}/${to}`;
+    default:
+      return `https://bscscan.com/${type}/${to}`;
+  }
+}
